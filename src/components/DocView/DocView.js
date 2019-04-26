@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, Image, View, Button } from 'react-native';
 
 export default class DocView extends React.Component {
 
@@ -41,7 +41,7 @@ export default class DocView extends React.Component {
                 blocks: [...prevState.blocks, {
                     id: prevState.blocks.length,
                     type: 'img',
-                    url: 'https://cdn-images-1.medium.com/max/1091/1*qvFfplwA_GPfzCElidWS4Q.png'
+                    url: 'https://fotografias.lasexta.com/clipping/cmsimages01/2017/02/07/364CAAAC-A60E-43BB-8FED-05AA0B8F3AF9/58.jpg'
                 }]
             }
         });
@@ -55,16 +55,16 @@ export default class DocView extends React.Component {
                 <Text>DocView {id}</Text>
 
                 {this.state.blocks && this.state.blocks.map((block) => {
-                    if (bloack.type === 'text') {
+                    if (block.type === 'text') {
                         return <Text key={block.id}>{block.text}</Text>
                     } else {
-                        return <Image key={block.id} style={{ height: 50 }} source={{ uri: block.url }}></Image>
+                        return <Image key={block.id} style={{ height: 50 }} source={{ uri: block.url }} />
                     }
                 })}
 
                 <View>
-                    <Button onPress={this.addText}>Add Text</Button>
-                    <Button onPress={this.addImage}>Add Image</Button>
+                    <Button onPress={this.addText} title="Add Text" />
+                    <Button onPress={this.addImage} title="Add Image" />
                 </View>
 
             </View>
